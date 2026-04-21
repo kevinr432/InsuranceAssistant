@@ -314,10 +314,10 @@ export default function App() {
                 },
                 followUpText: 'What would you like to do next?',
                 options: [
-                    'View the details of your coverage',
-                    'Pay the quarterly premium of $14.98',
-                    'Pay the semi-annual premium of $29.98',
-                    'Pay the annual premium of $59.95',
+                    'View the details of my coverage',
+                    'Pay my quarterly premium of $14.98',
+                    'Pay my semi-annual premium of $29.98',
+                    'Pay my annual premium of $59.95',
                 ],
             },
             'verified'
@@ -450,7 +450,7 @@ export default function App() {
                                                 </label>
 
                                                 <label>
-                                                    <span>What is the 4 digit access code printed on your most recent billing notice.</span>
+                                                    <span>What is the 4 digit access code printed on your most recent billinggit commit -m "Fix quote flow and remove form echo" notice.</span>
                                                     <input
                                                         type="text"
                                                         value={form.billingCode}
