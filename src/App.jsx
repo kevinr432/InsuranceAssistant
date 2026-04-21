@@ -32,11 +32,11 @@ function buildInitialMessages() {
         {
             id: makeId(),
             role: 'assistant',
-            text: `${getTimeGreeting()}. I am Sybil, the automated assistant at American Gulf. How can I help you?   For faster connection scan the QR code on your most recent premium notice.`,
+            text: `${getTimeGreeting()}. I'm Sybil, the automated assistant at American Gulf. How can I help you?   For faster connection scan the QR code on your most recent premium notice.`,
             options: [
                 'Pay my insurance premium',
                 'Lookup my insurance account',
-                'Show me options and pricing for new insurance',
+                'Get an insurance quote',
             ],
         },
     ];
@@ -152,7 +152,7 @@ export default function App() {
         if (isThinking) return;
         addUserMessage(option);
 
-        if (option === 'Show me options and pricing for new insurance') {
+        if (option === 'Get an insurance quote') {
             queueAssistantReply(
                 {
                     text: 'Please answer the following questions so I can show you sample pricing.',
@@ -282,10 +282,7 @@ export default function App() {
         event.preventDefault();
         if (isThinking) return;
 
-        addUserMessage(
-            `Name: ${form.fullName}\nPolicy number: ${form.policyNumber}\nAnnual premium: ${form.annualPremium}\n4 digit code: ${form.billingCode}`
-        );
-
+  
         const ok =
             form.fullName.trim() === VALID.fullName &&
             form.policyNumber.trim() === VALID.policyNumber &&
@@ -305,7 +302,7 @@ export default function App() {
 
         queueAssistantReply(
             {
-                text: 'Thank you. Here is some information on your policy.',
+                text: 'Thank you. Your basic policy information is shown here.',
                 policyCard: {
                     owner: 'Fred Flintstone',
                     policyNumber: '12345A',
@@ -331,10 +328,7 @@ export default function App() {
         event.preventDefault();
         if (isThinking) return;
 
-        addUserMessage(
-            `Date of birth: ${form.dob}\nGender: ${form.gender}`
-        );
-
+     
         queueAssistantReply(
             {
                 text: 'Here are sample rates for the new insured.',
@@ -456,7 +450,7 @@ export default function App() {
                                                 </label>
 
                                                 <label>
-                                                    <span>What is the 4 digit code printed on your most recent billing notice.</span>
+                                                    <span>What is the 4 digit access code printed on your most recent billing notice.</span>
                                                     <input
                                                         type="text"
                                                         value={form.billingCode}
